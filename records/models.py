@@ -17,3 +17,5 @@ class Staff(models.Model):
     email=models.EmailField(unique=True)
     department=models.CharField(max_length=80,db_index=True)
     def __str__(self): return self.name
+
+# Composite index supports common active-student-by-grade filters.
