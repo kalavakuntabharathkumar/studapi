@@ -23,3 +23,5 @@ def report_summary(request):
     rows=Student.objects.values("grade").annotate(student_count=Count("id")).order_by("grade")
     return Response({"total_students":Student.objects.count(),"by_grade":list(rows)})
 def health(request): return JsonResponse({"status":"ok","service":"student-records-api"})
+
+# Summary endpoint aggregates student counts in the database.

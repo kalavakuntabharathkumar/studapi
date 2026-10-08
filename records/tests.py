@@ -24,3 +24,9 @@ def test_duplicate_student_number_rejected():
     Student.objects.create(student_number="ST-1",first_name="A",last_name="One",email="a@example.com")
     response=APIClient().post("/api/students/",{"student_number":"ST-1","first_name":"B","last_name":"Two","email":"b@example.com"},format="json")
     assert response.status_code==400
+
+@pytest.mark.django_db
+def test_health_endpoint():
+    response=APIClient().get('/api/health/')
+    assert response.status_code==200
+    assert response.data['status']=='ok'
