@@ -20,3 +20,6 @@ Admin: http://127.0.0.1:8000/admin/
 - `/api/health/` — health check
 
 SQLite is used by default so the starter runs locally without external services; switch `DATABASES` to MySQL for a MySQL deployment. This is a generated starter project, not a verified reproduction of an existing production system. Any resume metrics such as API count, user count, latency, coverage, or bug count must be measured independently before being claimed.
+
+## Tests
+Run `pytest`. The included tests cover CRUD creation/listing, grade filtering, summary aggregation, duplicate validation, and health status. Extend tests before using this as a production service.
